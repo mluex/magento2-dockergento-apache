@@ -11,7 +11,7 @@ services:
       - ./composer.lock:/var/www/html/composer.lock:delegated
       # {FILES_IN_GIT}
 
-  nginx:
+  apache:
     volumes: *appvolumes-mac
 
   node:

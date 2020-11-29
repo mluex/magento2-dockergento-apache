@@ -40,7 +40,7 @@ sed_in_file()
     fi
 }
 
-printf "${GREEN}Setting up dockergento config files${COLOR_RESET}\n"
+printf "${GREEN}Setting up dockergento-apache config files${COLOR_RESET}\n"
 copy_with_consent "${DOCKERGENTO_DIR}/${DOCKERGENTO_CONFIG_DIR}/" "${DOCKERGENTO_CONFIG_DIR}"
 copy_with_consent "${DOCKERGENTO_DIR}/docker-compose/docker-compose.sample.yml" "${DOCKER_COMPOSE_FILE}"
 copy_with_consent "${DOCKERGENTO_DIR}/docker-compose/docker-compose.dev.linux.sample.yml" "${DOCKER_COMPOSE_FILE_LINUX}"
@@ -66,8 +66,8 @@ if [ "${MAGENTO_DIR}" != "." ]; then
 #	sed_in_file "s#/html/app#/html/${MAGENTO_DIR}/app#gw /dev/stdout" "${DOCKER_COMPOSE_FILE_WINDOWS}"
 #	sed_in_file "s#/vendor#/${MAGENTO_DIR}/vendor#gw /dev/stdout" "${DOCKER_COMPOSE_FILE_WINDOWS}"
 #    echo "--------------------"
-    echo "------ ${DOCKERGENTO_CONFIG_DIR}/nginx/conf/default.conf ------"
-    sed_in_file "s#/var/www/html#/var/www/html/${MAGENTO_DIR}#gw /dev/stdout" "${DOCKERGENTO_CONFIG_DIR}/nginx/conf/default.conf"
+    echo "------ ${DOCKERGENTO_CONFIG_DIR}/apache/sites-enabled/000-default.conf ------"
+    sed_in_file "s#/var/www/html#/var/www/html/${MAGENTO_DIR}#gw /dev/stdout" "${DOCKERGENTO_CONFIG_DIR}/apache/sites-enabled/000-default.conf"
     echo "--------------------"
     printf "${COLOR_RESET}"
 fi
@@ -208,5 +208,5 @@ echo ""
 printf "${YELLOW}-------------------------------------${COLOR_RESET}\n"
 
 echo ""
-printf "${GREEN}Dockergento set up successfully!${COLOR_RESET}\n"
+printf "${GREEN}dockergento-apache set up successfully!${COLOR_RESET}\n"
 echo ""

@@ -5,7 +5,7 @@ services:
     volumes: &appvolumes-linux
       - .:/var/www/html
 
-  nginx:
+  apache:
     volumes: *appvolumes-linux
 
   node:

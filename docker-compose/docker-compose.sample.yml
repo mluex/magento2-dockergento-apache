@@ -7,17 +7,18 @@ services:
       - sockdata:/sock
       - ../.composer:/var/www/.composer:delegated
       - ../.composer:/var/www/html/var/composer_home:delegated
-      - ./config/dockergento/nginx/conf/default.conf:/var/www/conf/nginx/default.conf:delegated
+        - ./config/dockergento/apache/sites-enabled/000-default.conf:/var/www/conf/apache/000-default.conf:delegated
     environment:
       PHP_IDE_CONFIG: serverName=localhost
     depends_on:
       - db
       - elasticsearch
 
-  nginx:
-    image: modestcoders/nginx:1.13
+  apache:
+    image: mluex/apache-dev-dockergento:latest
     ports:
-      - 80:8000
+      - 80:80
+      - 443:443
     volumes: *appvolumes
     depends_on:
       - phpfpm
