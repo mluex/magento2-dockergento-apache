@@ -1,7 +1,7 @@
 # Magento Setup Install Commands
 
 ```
-dockergento magento setup:install \
+dockergento-apache magento setup:install \
   --db-host=db \
   --db-name=magento \
   --db-user=magento \
@@ -20,5 +20,5 @@ dockergento magento setup:install \
 ```
 
 ```
-dockergento magento deploy:mode:set developer
+dockergento-apache magento deploy:mode:set developer
 ```

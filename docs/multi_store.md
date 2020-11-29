@@ -16,8 +16,8 @@ map $http_host $MAGE_RUN_CODE {
 }
 ```
 	
-2. You need to restart dockergento to apply the new configuration:
+2. You need to restart dockergento-apache to apply the new configuration:
 	
 ```
-dockergento restart
+dockergento-apache restart
 ```

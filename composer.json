@@ -1,11 +1,12 @@
 {
-  "name": "modestcoders/magento2-dockergento",
-  "description": "Commands to help you using magento2-dockergento",
+  "name": "mluex/magento2-dockergento-apache",
+  "description": "Commands to help you using magento2-dockergento-apache",
   "keywords": [
     "magento2",
     "docker",
     "dockergento",
-    "environment"
+    "environment",
+    "apache"
   ],
   "type": "library",
   "authors": [
@@ -16,6 +17,10 @@
     {
       "name": "Daniel Lozano",
       "email": "dn.lozano.m@gmail.com"
+    },
+    {
+      "name": "Marius Luexxmann",
+      "email": "m.luexmann@gmail.com"
     }
   ],
   "bin": ["bin/dockergento"]

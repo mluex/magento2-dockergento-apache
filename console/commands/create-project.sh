@@ -77,7 +77,7 @@ fi
 if [[ ${COMPOSER_EDITION_NEEDED} == true ]]; then
   printf "${YELLOW}Edit ${COMPOSER_DIR}/composer.json accordingly and execute:\n"
   echo ""
-  echo "  dockergento composer install"
+  echo "  dockergento-apache composer install"
   echo ""
   exit 0
 fi

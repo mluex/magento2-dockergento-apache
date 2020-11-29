@@ -1,6 +1,12 @@
-# Magento 2 Dockergento
+# dockergento-apache
 
-Plug and play Magento 2 dev environments with docker. **Fastest performance ever** on Mac and Linux.
+This repository is a fork of ModestCoder's awesome Dockergento project. Dockergento is a plug and play Magento 2 dev environment with Docker and claims to have the **fastest performance ever** on Mac and Linux.
+
+This fork is almost identical to Dockergento. Only the nginx web server is replaced here with an Apache 2 web server so that people whose Magento shop should be deployed on Apache can also use this tool. Furthermore, the web server used here already contains a self-signed SSL certificate for local development.
+
+All credits go to ModestCoders: https://github.com/ModestCoders/magento2-dockergento
+
+Most of the following paragraphs and instructions are a 1:1 copy from the original project and contain only minor changes.
 
 ## Performance Comparison
 
@@ -84,20 +90,27 @@ Follow the installation steps for your system.
 1. Clone this repo
 
     ```
-    git clone https://github.com/ModestCoders/magento2-dockergento.git
+    git clone https://github.com/mluex/magento2-dockergento-apache.git
     ```
 
-2. Add `dockergento` bin into your `$PATH`
+2. Add `dockergento-apache` bin into your `$PATH`
 
     ```
-    sudo ln -s $(pwd)/magento2-dockergento/bin/dockergento /usr/local/bin/
+    sudo ln -s $(pwd)/magento2-dockergento/bin/dockergento-apache /usr/local/bin/
     ```
     
-3. Open a new terminal tab/window and check that `dockergento` works
+    Since `dockergento-apache` is quite long and you have to type it often, you can also assign an alias here. Example:
+
+    ```
+    sudo ln -s $(pwd)/magento2-dockergento/bin/dockergento-apache /usr/local/bin/MY-ALIAS
+    ```
+    You just have to make sure that you use your alias for all following commands.
+    
+3. Open a new terminal tab/window and check that `dockergento-apache` works
 
 	```
-	which dockergento
-	dockergento
+	which dockergento-apache
+	dockergento-apache
 	```
 
 </details>
@@ -111,15 +124,15 @@ Depending the type of project, you can use one of the following setups:
 
 ```
 cd <your_project>
-dockergento setup
+dockergento-apache setup
 ```
 
 ### New project
 
 ```
 mkdir <new_project_name> && cd <new_project_name>
-dockergento setup
-dockergento create-project
+dockergento-apache setup
+dockergento-apache create-project
 ```
 
 ### Magento 2 github for contribution
@@ -149,14 +162,14 @@ dockergento create-project
 3. Mirror not synced folders before executing composer the first time
 
 	```
-	dockergento start
-	dockergento mirror-host app dev generated pub var
+	dockergento-apache start
+	dockergento-apache mirror-host app dev generated pub var
 	```
 
 4. If you are editing code in `app`, you need to start unison watcher to sync files between host and container.
 
 	```
-	dockergento watch app/code/Magento/<module_name>
+	dockergento-apache watch app/code/Magento/<module_name>
 	```
     
 </details>
@@ -164,7 +177,7 @@ dockergento create-project
 ```
 git clone https://github.com/magento/magento2.git
 cd magento2
-dockergento setup
+dockergento-apache setup
 ```
 
 ---
@@ -174,8 +187,8 @@ dockergento setup
 ### Start Application
 
 ```
-dockergento start
-dockergento composer install
+dockergento-apache start
+dockergento-apache composer install
 sudo vim /etc/hosts
 // Add -> 127.0.0.1 <your-domain>
 ```
@@ -204,10 +217,6 @@ See detailed documentation about development workflow with dockergento
 
 ---
 
-## ChangeLog
-
-* [CHANGELOG.md](CHANGELOG.md)
-
 ## Developers
 
 * [Juan Alonso](https://github.com/jalogut)
@@ -216,7 +225,7 @@ See detailed documentation about development workflow with dockergento
 
 ## Donations 🙏
 
-We’ve worked very hard to implement this tool. If you find it useful and want to invite us for a beer, just click on the donation button. Thanks! 🍺 
+ModestCoders worked very hard to implement this tool. If you find it useful and want to invite them for a beer, just click on the donation button. Thanks! 🍺 
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](juan.jalogut@gmail.com)
 
@@ -224,6 +233,7 @@ We’ve worked very hard to implement this tool. If you find it useful and want 
 
 This project has been possible thanks to the following resources:
 
+* [magento2-dockergento](https://github.com/ModestCoders/magento2-dockergento) by [@ModestCoders](https://github.com/ModestCoders)
 * [docker-magento](https://github.com/markoshust/docker-magento) by [@markshust](https://twitter.com/markshust)
 * [Getting Started with Docker for Magento](https://nomadmage.com/product/getting-started-with-docker-for-magento-2/) by [@mostlymagic](https://twitter.com/mostlymagic)
 * [Docker Background Sync](https://github.com/cweagans/docker-bg-sync) by [@cweagans](https://twitter.com/cweagans)
@@ -234,3 +244,5 @@ This project has been possible thanks to the following resources:
 
 ## Copyright
 (c) ModestCoders
+
+Exchange of the web server: (c) mluex
