@@ -1,19 +1,18 @@
 # Multi Store
 
-If you have a multi-store magento, you need to add your website codes to the ngnix configuration as follows:
+If you have a multi-store magento, you need to add your website codes to the Apache configuration as follows:
 
-1. Edit `config/dockergento/nginx/conf/default.conf`
+1. Edit `config/dockergento/apache/sites-enabled/000-default.conf`
 	
 ```
 # WEBSITES MAPPING
-map $http_host $MAGE_RUN_CODE {
+SetEnv MAGE_RUN_CODE base
+SetEnv MAGE_RUN_TYPE website
 
-	default    base;
-	## For multi-store configuration add here your domain-website codes
-	dominio-es.lo    es;
-	dominio-ch.lo    ch;
-	dominio-de.lo    de;
-}
+## For multi-store configuration add here your domain-website codes
+SetEnvIf Host "dominio-es.lo" MAGE_RUN_CODE=es
+SetEnvIf Host "dominio-ch.lo" MAGE_RUN_CODE=ch
+SetEnvIf Host "dominio-de.lo" MAGE_RUN_CODE=de
 ```
 	
 2. You need to restart dockergento-apache to apply the new configuration:
