@@ -96,13 +96,13 @@ Follow the installation steps for your system.
 2. Add `dockergento-apache` bin into your `$PATH`
 
     ```
-    sudo ln -s $(pwd)/magento2-dockergento/bin/dockergento-apache /usr/local/bin/
+    sudo ln -s $(pwd)/magento2-dockergento-apache/bin/dockergento-apache /usr/local/bin/
     ```
     
     Since `dockergento-apache` is quite long and you have to type it often, you can also assign an alias here. Example:
 
     ```
-    sudo ln -s $(pwd)/magento2-dockergento/bin/dockergento-apache /usr/local/bin/MY-ALIAS
+    sudo ln -s $(pwd)/magento2-dockergento-apache/bin/dockergento-apache /usr/local/bin/MY-ALIAS
     ```
     You just have to make sure that you use your alias for all following commands.
     
